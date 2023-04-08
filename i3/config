@@ -1,0 +1,259 @@
+set $mod Mod4
+font pango:DejaVu Sans Mono 10
+floating_modifier $mod
+
+# start a terminal LIBGL_ALWAYS_SOFTWARE=1 
+bindsym $mod+Return exec kitty
+
+########################################### windows shortcuts ###########################################
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+k focus down
+bindsym $mod+j focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+j move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+########################################### i3 shortcuts ###########################################
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym i resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+########################################### function keys ###########################################
+
+# Screen Brightness
+# bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 50
+
+# Pulse Audio controls
+# bindsym XF86AudioRaiseVolume exec pulseaudio-control --volume-max 130 up #increase sound volume
+# bindsym XF86AudioLowerVolume exec pulseaudio-control --volume-max 130 down #decrease sound volume
+# bindsym XF86AudioMute exec pulseaudio-control togmute # mute sound
+bindsym XF86AudioRaiseVolume exec /home/martin/.config/i3/volumeControl.sh up
+bindsym XF86AudioLowerVolume exec /home/martin/.config/i3/volumeControl.sh down
+bindsym XF86AudioMute exec /home/martin/.config/i3/volumeControl.sh mute
+
+########################################### custom shortcuts ###########################################
+
+# lock
+bindsym $mod+Shift+p exec /home/martin/.config/i3/lock.sh
+
+# rofi
+# bindsym $mod+d exec --no-startup-id /home/martin/.config/rofi/bin/launcher_colorful
+# bindsym $mod+m exec --no-startup-id /home/martin/.config/rofi/bin/menu_mpd
+# bindsym $mod+n exec --no-startup-id /home/martin/.config/rofi/bin/menu_network
+# bindsym $mod+p exec --no-startup-id /home/martin/.config/rofi/bin/powermenu
+bindsym $mod+d exec --no-startup-id /home/martin/.config/polybar/grayblocks/scripts/launcher.sh
+bindsym $mod+p exec --no-startup-id /home/martin/.config/polybar/grayblocks/scripts/powermenu.sh
+
+# menu_* for menus / applet_* for applets 
+# apps.sh screenshot.sh backlight.sh quicklinks.sh volume.sh
+# in /home/martin/.config/rofi/bin/ are the links to those shellscripts
+# bindsym $mod+w exec --no-startup-id /home/martin/.config/rofi/bin/applet_apps
+# bindsym $mod+i exec --no-startup-id /home/martin/.config/rofi/bin/applet_backlight
+# bindsym $mod+q exec --no-startup-id /home/martin/.config/rofi/bin/applet_quicklinks
+# bindsym $mod+o exec --no-startup-id /home/martin/.config/rofi/bin/applet_volume
+# bindsym $mod+ exec --no-startup-id /home/martin/.config/rofi/bin/
+
+# rofi screenshots
+bindsym $mod+Shift+s exec --no-startup-id rofi-screenshot
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id rofi-screenshot -s
+
+# dmenu for programs
+bindsym $mod+Shift+d exec --no-startup-id dmenu_run -l 5 -sb violet
+
+# bindsym $mod+b exec firefox 
+bindsym $mod+b exec microsoft-edge-stable
+bindsym $mod+c exec code
+bindsym $mod+e exec obsidian
+
+# bluetooth
+bindsym $mod+Shift+b exec blueman-manager
+bindsym $mod+Ctrl+b exec /home/martin/git/repos/shellscripts/connect-to-bluetooth-device/btconnect.sh
+
+# network
+bindsym $mod+Shift+n exec networkmanager_dmenu -l 5 -sb violet
+bindsym $mod+Ctrl+n exec /home/martin/git/repos/shellscripts/reconnect-network/reconnect-network.sh
+
+# tor & warp
+bindsym $mod+Shift+w exec /home/martin/git/repos/shellscripts/warpctl/warpctl-toggle.sh
+bindsym $mod+Shift+t exec /home/martin/git/repos/shellscripts/torctl/torctl-toggle.sh
+bindsym $mod+Ctrl+s exec /home/martin/git/repos/shellscripts/tor-warp-status/tor-warp-status.sh
+
+########################################### windows ###########################################
+
+# colour of border, background, text, indicator, and child_border
+client.focused              #3B4252 #2f343f #d8dee8 #3B4252 #424a59 
+client.focused_inactive     #2E3440 #2f343f #d8dee8 #2E3440 #2f343f
+client.unfocused            #2E3440 #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
+client.placeholder          #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
+client.background           #2f343f
+
+for_window [class=".*"] border pixel 0
+gaps inner 8
+gaps outer 8
+gaps top 12
+
+
+# floating windows
+for_window [class="mpv"] floating enable;
+for_window [title="OneLoneCoder.com*"] floating enable;
+for_window [class="feh"] floating enable;
+for_window [class="test2d"] floating enable;
+for_window [class="RssReader"] floating enable
+for_window [class="JPG-Compression"] floating enable
+for_window [class="Project"] floating enable
+for_window [class="SandSim"] floating enable
+for_window [title="Blender Preferences"] floating enable
+for_window [title="Blender Render"] floating enable
+for_window [class="atari800"] floating enable
+for_window [title="Android Emulator*"] floating enable
+for_window [class="net-tfobz-tunnel-client-ClientForm"] floating enable
+for_window [class="*qemu*"] floating enable
+for_window [title="*Paravim"] floating enable
+for_window [title="Minecraft*"] floating enable
+for_window [title="Welcome to Xbox"] floating enable
+for_window [class="thunar"] floating enable
+
+# smart_borders on
+# smart_borders no_gaps
+# border_radius 10
+
+########################################### startup programs ###########################################
+
+exec --no-startup-id xbacklight -set 60
+
+# exec_always --no-startup-id picom --experimental-backends -cb --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom -cb --config ~/.config/picom/picom.conf
+
+exec --no-startup-id xrandr --dpi 96
+exec --no-startup-id xrandr --query | grep "HDMI-0 connected" && xrandr --output HDMI-0 --mode 1920x1080 --rate 144.00
+
+exec --no-startup-id nitrogen --restore
+# already done inside of .xinitrc
+
+# exec --no-startup-id feh --bg-scale /usr/share/backgrounds/the-great-wave2-nord.png 
+# already managed by nitrogen
+
+# exec --no-startup-id polybar main_bar --config=$HOME/.config/polybar/config.ini
+# already used other polybar config
+exec --no-startup-id bash ~/.config/polybar/launch.sh --grayblocks
+
+exec --no-startup-id setxkbmap -layout de -option caps:escape
+exec --no-startup-id xset -b
+exec --no-startup-id xsetroot -cursor_name left_ptr
+
+exec --no-startup-id xinput set-prop MSFT0001:01\ 06CB:CD5F\ Touchpad libinput\ Natural\ Scrolling\ Enabled 1
+exec --no-startup-id xinput set-prop MSFT0001:01\ 06CB:CD5F\ Touchpad libinput\ Tapping\ Enabled 1
+exec --no-startup-id xinput set-prop MSFT0001:01\ 06CB:CD5F\ Touchpad libinput\ Accel\ Speed +0.25
+exec --no-startup-id xinput set-prop Logitech\ G502\ HERO\ Gaming\ Mouse libinput\ Accel\ Speed +0.25
+
+# exec --no-startup-id xfce4-power-manager 
+# not installed
+
+exec --no-startup-id dunst
+
+exec --no-startup-id nm-applet
+
+exec --no-startup-id pactl load-module module-switch-on-connect
+
+exec --no-startup-id warp-cli connect
+# exec --no-startup-id sudo torctl start
+
+# exec --no-startup-id easyeffects --gapplication-service 
+# not installed
+
+exec --no-startup-id pa-applet
+
+exec --no-startup-id blueman-applet
+
+exec --no-startup-id udiskie -t
