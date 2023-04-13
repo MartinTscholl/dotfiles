@@ -124,7 +124,7 @@ bindsym XF86AudioMute exec /home/martin/.config/i3/volumeControl.sh mute
 ########################################### custom shortcuts ###########################################
 
 # lock
-bindsym $mod+Shift+p exec /home/martin/.config/i3/lock.sh
+bindsym $mod+Shift+p exec --no-startup-id /home/martin/.config/i3/lock.sh
 
 # rofi
 # bindsym $mod+d exec --no-startup-id /home/martin/.config/rofi/bin/launcher_colorful
@@ -144,11 +144,15 @@ bindsym $mod+p exec --no-startup-id /home/martin/.config/polybar/grayblocks/scri
 # bindsym $mod+ exec --no-startup-id /home/martin/.config/rofi/bin/
 
 # rofi screenshots
-bindsym $mod+Shift+s exec --no-startup-id rofi-screenshot
-bindsym $mod+Shift+Ctrl+s exec --no-startup-id rofi-screenshot -s
+# bindsym $mod+Shift+s exec --no-startup-id rofi-screenshot
+# bindsym $mod+Shift+Ctrl+s exec --no-startup-id rofi-screenshot -s
+
+# screenshots
+bindsym --release $mod+Shift+s exec --no-startup-id /home/martin/git/repos/shellscripts/screenshot/screenshot-selection.sh
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id /home/martin/git/repos/shellscripts/screenshot/screenshot-full.sh
 
 # dmenu for programs
-bindsym $mod+Shift+d exec --no-startup-id dmenu_run -l 5 -sb violet
+bindsym $mod+Shift+d exec dmenu_run -l 5 -sb violet
 
 # bindsym $mod+b exec firefox 
 bindsym $mod+b exec microsoft-edge-stable
@@ -157,16 +161,16 @@ bindsym $mod+e exec obsidian
 
 # bluetooth
 bindsym $mod+Shift+b exec blueman-manager
-bindsym $mod+Ctrl+b exec /home/martin/git/repos/shellscripts/connect-to-bluetooth-device/btconnect.sh
+bindsym $mod+Ctrl+b exec --no-startup-id /home/martin/git/repos/shellscripts/connect-to-bluetooth-device/btconnect.sh
 
 # network
 bindsym $mod+Shift+n exec networkmanager_dmenu -l 5 -sb violet
-bindsym $mod+Ctrl+n exec /home/martin/git/repos/shellscripts/reconnect-network/reconnect-network.sh
+bindsym $mod+Ctrl+n exec --no-startup-id /home/martin/git/repos/shellscripts/reconnect-network/reconnect-network.sh
 
 # tor & warp
-bindsym $mod+Shift+w exec /home/martin/git/repos/shellscripts/warpctl/warpctl-toggle.sh
-bindsym $mod+Shift+t exec /home/martin/git/repos/shellscripts/torctl/torctl-toggle.sh
-bindsym $mod+Ctrl+s exec /home/martin/git/repos/shellscripts/tor-warp-status/tor-warp-status.sh
+bindsym $mod+Shift+w exec --no-startup-id /home/martin/git/repos/shellscripts/warpctl/warpctl-toggle.sh
+bindsym $mod+Shift+t exec --no-startup-id /home/martin/git/repos/shellscripts/torctl/torctl-toggle.sh
+bindsym $mod+Ctrl+s exec --no-startup-id /home/martin/git/repos/shellscripts/tor-warp-status/tor-warp-status.sh
 
 ########################################### windows ###########################################
 
