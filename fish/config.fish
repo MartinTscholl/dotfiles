@@ -14,6 +14,6 @@ alias eusb="umount /run/media/martin/4BE7-5B2E"
 alias eallusb="umount /run/media/martin/*"
 alias ngs="nvm use 14.17.1 && ng serve"
 alias nvv="nvm use 14.17.1"
-alias nzip="zip -x '*node_modules*' -r"
+alias nzip="zip -x '*node_modules*' '*.idea*' '*.vscode*' -r"
 alias cleard="clear && neofetch"
-
+alias kssh="kitty +kitten ssh"
