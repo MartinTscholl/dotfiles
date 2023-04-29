@@ -111,7 +111,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100
-bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 50
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 70
 
 # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume exec pulseaudio-control --volume-max 130 up #increase sound volume
@@ -173,6 +173,9 @@ bindsym $mod+Shift+w exec --no-startup-id /home/martin/git/repos/shellscripts/wa
 bindsym $mod+Shift+t exec --no-startup-id /home/martin/git/repos/shellscripts/torctl/torctl-toggle.sh
 bindsym $mod+Ctrl+s exec --no-startup-id /home/martin/git/repos/shellscripts/tor-warp-status/tor-warp-status.sh
 
+# polybar
+bindsym $mod+Ctrl+p exec --no-startup-id polybar-msg cmd toggle 
+
 ########################################### windows ###########################################
 
 # colour of border, background, text, indicator, and child_border
@@ -187,7 +190,6 @@ for_window [class=".*"] border pixel 0
 gaps inner 8
 gaps outer 8
 gaps top 12
-
 
 # floating windows
 for_window [class="mpv"] floating enable;
@@ -209,21 +211,19 @@ for_window [title="Minecraft*"] floating enable
 for_window [title="Welcome to Xbox"] floating enable
 for_window [class="thunar"] floating enable
 
-
-
 # smart_borders on
 # smart_borders no_gaps
 # border_radius 10
 
 ########################################### startup programs ###########################################
 
-exec --no-startup-id xbacklight -set 70
-
 # exec_always --no-startup-id picom --experimental-backends -cb --config ~/.config/picom/picom.conf
 exec_always --no-startup-id picom -cb --config ~/.config/picom/picom.conf
 
 exec --no-startup-id xrandr --dpi 96
 exec --no-startup-id xrandr --query | grep "HDMI-0 connected" && xrandr --output HDMI-0 --mode 1920x1080 --rate 144.00
+
+exec --no-startup-id bash /home/martin/git/repos/shellscripts/check-power-connection/check-power-connection.sh
 
 exec --no-startup-id nitrogen --restore
 # already done inside of .xinitrc
