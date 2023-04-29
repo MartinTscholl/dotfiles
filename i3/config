@@ -174,7 +174,10 @@ bindsym $mod+Shift+t exec --no-startup-id /home/martin/git/repos/shellscripts/to
 bindsym $mod+Ctrl+s exec --no-startup-id /home/martin/git/repos/shellscripts/tor-warp-status/tor-warp-status.sh
 
 # polybar
-bindsym $mod+Ctrl+p exec --no-startup-id polybar-msg cmd toggle 
+ bindsym $mod+Ctrl+p exec --no-startup-id polybar-msg cmd toggle 
+
+# filemanager 
+bindsym $mod+Shift+f exec --no-startup-id nautilus
 
 ########################################### windows ###########################################
 
@@ -210,6 +213,7 @@ for_window [title="*Paravim"] floating enable
 for_window [title="Minecraft*"] floating enable
 for_window [title="Welcome to Xbox"] floating enable
 for_window [class="thunar"] floating enable
+for_window [class="Nautilus"] floating enable
 
 # smart_borders on
 # smart_borders no_gaps
