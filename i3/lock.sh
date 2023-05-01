@@ -24,11 +24,12 @@ GREY50="373445ff"
 TRANSPARENT="00000000"
 PURPLE="701e90cc"
 PINK="c12363cc"
+WHITE="ffffffff"
 
 i3lock -n -i $PICTURE \
     --inside-color=$GREY50 --ring-color=$TRANSPARENT --line-uses-inside \
-    --keyhl-color=$PURPLE --bshl-color=$RED --separator-color=$TRANSPARENT \
-    --insidever-color=$PURPLE --insidewrong-color=$RED \
+    --keyhl-color=$WHITE --bshl-color=$RED --separator-color=$TRANSPARENT \
+    --insidever-color=$WHITE --insidewrong-color=$RED \
     --ringver-color=$TRANSPARENT --ringwrong-color=$TRANSPARENT --ind-pos="x+130:y+970" \
     --radius=40 --verif-text="" --wrong-text="" --noinput-text=""
 
