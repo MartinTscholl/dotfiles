@@ -227,13 +227,13 @@ exec_always --no-startup-id picom -cb --config ~/.config/picom/picom.conf
 exec --no-startup-id xrandr --dpi 96
 exec --no-startup-id xrandr --query | grep "HDMI-0 connected" && xrandr --output HDMI-0 --mode 1920x1080 --rate 144.00
 
-exec --no-startup-id bash /home/martin/git/repos/shellscripts/check-power-connection/check-power-connection.sh
+exec --no-startup-id xbacklight -set 100
 
-exec --no-startup-id nitrogen --restore
-# already done inside of .xinitrc
+exec --no-startup-id bash /home/martin/git/repos/shellscripts/check-power-connection/check-power-connection.sh
 
 # exec --no-startup-id feh --bg-scale /usr/share/backgrounds/the-great-wave2-nord.png 
 # already managed by nitrogen
+exec --no-startup-id nitrogen --restore
 
 # exec --no-startup-id polybar main_bar --config=$HOME/.config/polybar/config.ini
 # already used other polybar config
