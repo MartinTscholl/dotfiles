@@ -3,7 +3,7 @@ pkill -u $USER -USR1 dunst
 # $PICTURE=$HOME/.config/wallpapers/red-mountains-morning-minimal-4k-dn.jpg
 
 PICTURE=/tmp/i3lock.png
-SCREENSHOT="scrot $PICTURE"
+SCREENSHOT="scrot -z $PICTURE"
 
 BLUR="0x15"
 

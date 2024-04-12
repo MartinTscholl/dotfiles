@@ -195,6 +195,7 @@ gaps outer 8
 gaps top 12
 
 # floating windows
+for_window [title="Bitwarden"] floating enable;
 for_window [class="mpv"] floating enable;
 for_window [title="OneLoneCoder.com*"] floating enable;
 for_window [class="feh"] floating enable;
@@ -238,6 +239,8 @@ exec --no-startup-id nitrogen --restore
 # exec --no-startup-id polybar main_bar --config=$HOME/.config/polybar/config.ini
 # already used other polybar config
 exec --no-startup-id bash ~/.config/polybar/launch.sh --grayblocks
+
+# exec --no-startup-id polybar-msg cmd toggle
 
 exec --no-startup-id setxkbmap -layout de -option caps:escape
 exec --no-startup-id xset -b
