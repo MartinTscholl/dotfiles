@@ -155,7 +155,7 @@ bindsym $mod+Shift+Ctrl+s exec --no-startup-id /home/martin/git/repos/shellscrip
 bindsym $mod+Shift+d exec dmenu_run -l 5 -sb violet
 
 # bindsym $mod+b exec firefox 
-bindsym $mod+b exec microsoft-edge-stable
+bindsym $mod+b exec firefox
 bindsym $mod+c exec code
 bindsym $mod+e exec obsidian
 bindsym $mod+n exec nvim-qt
